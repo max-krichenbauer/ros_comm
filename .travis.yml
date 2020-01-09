@@ -13,11 +13,10 @@ matrix:
 # env
 env:
   global:
-    # [CoverityScan]
-    - secure: "RpJgyk13mtBM0K3p3h+ZIW4LxNhivHgNnAbkrvdVixlCV/AOpEkoUBSqVcYGjzbgEHSl6jlP5g6Ovatb1evyVamohpN3Ar4yGqFzh3eb+dD6nfQ71+ANJz6LTCT642ehqPBBFsdYBY2H18mSMXzi8dWzSzQDUbDJ+Ka2ApACNm39c+G/QlD26a/HqNWupZwZ34PVp7hmt0y4Y1TC/7fQDy2GsZahVa+BpZJGzNxc7I11Jb+DlyKvKSZbAYPxMK6UXaYCYwRQwtYeeNuVqWMJjTefeoeK72UrjLAkfJi4e4WnaigXPG6Txubeesd7wiWks924x4mz4YUt+O/wMS81RHApRqKCRSTL0av9jh5Ymfm0jOyCD9l4QAuz4EDUMgsKTegEWiXp0pSr4TawIxyOF7p1y0yAoGIajLwqYXir966tHwMJfO1c0WtB1zT+ZwtVLTdZ5qHKvAql8rzTjz6aC2At2sSnGtsvHFvV6w+CPbcQvmri/CTeZSpxwtANPrOFbzXTqF9sMybdodTkwL0eefEpPUYylh+fmb34Fw3hNrCa+TK6l9TqhTovTXF16XAjOswJOlEc7GpFUE6Emzl64aIrWPAXMv87sKrny4SgnKzMJGFn9ryRrOlfa95tVNEWf1QLhNAQamtqg9Ba7ouxwHArtwvZYwiULCfvlQGzMe0="
     - ROS_CI_DESKTOP="`lsb_release -cs`"
     - CI_SOURCE_PATH=$(pwd)
-
+    # [CoverityScan]
+    - COVERITY_SCAN_TOKEN="e4x4JC_6jQE0npBxD_8Xkg"
 
 before_install:
   # install ros
