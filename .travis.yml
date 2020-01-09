@@ -40,7 +40,10 @@ addons:
       description: "ROS communications-related packages"
     notification_email: max@marui-plugin.com
     build_command_prepend: "cov-configure --clang && cd ~/catkin_ws"
-    build_command: "cov-build --dir cov-int catkin_make && cd $CI_SOURCE_PATH/ros_comm && ln -s ~/catkin_ws/cov-int ."
+    build_command:
+      - cov-build --dir cov-int catkin_make
+      - cd $CI_SOURCE_PATH/ros_comm
+      - ln -s ~/catkin_ws/cov-int .
     branch_pattern: kinetic-devel-coverity-scan
 
 install:
