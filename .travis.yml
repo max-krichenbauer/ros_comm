@@ -16,8 +16,7 @@ env:
     - ROS_CI_DESKTOP="`lsb_release -cs`"
     - CI_SOURCE_PATH=$(pwd)
     # [CoverityScan]
-    - secure: "KLiwQlDZvCEZPfNwrAt1OhtobUCJpRGZkDBMWzt+4vIQgsaZNB0EavxUtfqAL7+Qu9vA3xLRJT9n/a2GFarKQwzoydUR8JboTTyQRuDr6jLcEjVajAVruOfVeQP8Bzk0FsUXpapa0lUUsKczAIr3ZOoz7q6GEdBJy57N88AdikEzcxA0SieHCJkDFo3lshRPpqvS+ijR+OPobSuy0aDSQeTGNeOhEwxeGJws+pHPz8nIp6vPjn7uGpKCkq/9udYf3SgKEGwrO5+ikV8VL3R9VVSpUQY3ZlBUumt9Fct41jMzpb5RXp/AYlhXokBR2/ezX60P1fcjLYePYw2dE8J33oG/oUbCwY97ixbu4Gvm5CDVS6igcPwfJLUyL2ItTSpO1M1tMwh47hdefZvG6gB0S/x4KU6qTnqPQoiLHXr8pVLyPLuab4Box8zoSzJMfXmJutL1zFJ2LDZZfghdXLAQ82IMDvYlI0ecgYdZy2v7gktCXLbPwB+0EbOa+dC0Z4QKS+d1dRGr8A4L776YbZPVcWf1d+bDWdWUJj8o6F9y0TVfDFnZT45UcKY113bYteOQRk3wy5Ti3w3X+08JAowRoC6e+BE3DPzvbHDfq3qo4ooKARowCvmIaremJ0+mr/Ffu8dfRj39LNu/8AJlKQDc/dffM42DJNuecHPpfjSyT6E="
-
+    - secure: "Nmr91mbj4c/8cbIwCFxdICoDbW76saJSVS8kRgerHwV8k5A4Q4P1cgp0ASic6VK7UcA09MZj7nVEc9wlx50WXqp867J3h9FajilvlNCoCaMN4J2FjdPFcYL7pSHmmYIfR3c+96S20KwY/ILBPjUszRiXc9b9oFfHzVDBFehAq9fNGOiShvP2d7tI1OVVUQG485aIKBXYHel7BE6bMCKgSxcXW4nsQtb0zlex2TIx3rh25HWulJfP12GBhpPasLx/AxLilmN4MrKSuIOUxi8lT/YyyNxwsluDnBcos1dg+YgdcV0EfoDSFH3PKX/xh2AiIjIXFHtOE6+pDklW7GIpBJPt1qmojgO1dl1fbdeXxP/Inn93Zqc8v+PXs3bviAIAxD5MtYjTRWQ7sZJc29mVDWC39VTnO4UvfYPrU8kqRmJKqDWsqaRIaIfb0WF9YiwMAhugxpbmGtc34gJJ8Rikc5gdU9nVnkK2o63Zp81WRCWgrzvxFPHtxsfE2mvQftNTWGOajztHdIiev2c7L+dmwJ/vkOupjUKzko9/r/n7gGR2/TzTutNTGFUNrtP4DHBfyiu9HEBJXUfqO4pCRyMkphJz9Ds4W84jvfNBXFD/BeH2z4XRCPD9gD9E6JWh6MBVgf1fD5tcnpWollW/oO5ds5VSnglPucgipwXehQXhq6A="
 
 before_install:
   # install ros
@@ -40,8 +39,8 @@ addons:
       name: "max-krichenbauer/ros_comm"
       description: "ROS communications-related packages"
     notification_email: max@marui-plugin.com
-    build_command_prepend: "<Your build preprocessing command here>"
-    build_command: "cd ~/catkin_ws && catkin_make"
+    build_command_prepend: "cd ~/catkin_ws"
+    build_command: "catkin_make"
     branch_pattern: kinetic-devel-coverity-scan
 
 install:
