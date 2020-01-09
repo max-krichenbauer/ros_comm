@@ -15,6 +15,9 @@ env:
   global:
     - ROS_CI_DESKTOP="`lsb_release -cs`"
     - CI_SOURCE_PATH=$(pwd)
+    # [CoverityScan]
+    - secure: "KLiwQlDZvCEZPfNwrAt1OhtobUCJpRGZkDBMWzt+4vIQgsaZNB0EavxUtfqAL7+Qu9vA3xLRJT9n/a2GFarKQwzoydUR8JboTTyQRuDr6jLcEjVajAVruOfVeQP8Bzk0FsUXpapa0lUUsKczAIr3ZOoz7q6GEdBJy57N88AdikEzcxA0SieHCJkDFo3lshRPpqvS+ijR+OPobSuy0aDSQeTGNeOhEwxeGJws+pHPz8nIp6vPjn7uGpKCkq/9udYf3SgKEGwrO5+ikV8VL3R9VVSpUQY3ZlBUumt9Fct41jMzpb5RXp/AYlhXokBR2/ezX60P1fcjLYePYw2dE8J33oG/oUbCwY97ixbu4Gvm5CDVS6igcPwfJLUyL2ItTSpO1M1tMwh47hdefZvG6gB0S/x4KU6qTnqPQoiLHXr8pVLyPLuab4Box8zoSzJMfXmJutL1zFJ2LDZZfghdXLAQ82IMDvYlI0ecgYdZy2v7gktCXLbPwB+0EbOa+dC0Z4QKS+d1dRGr8A4L776YbZPVcWf1d+bDWdWUJj8o6F9y0TVfDFnZT45UcKY113bYteOQRk3wy5Ti3w3X+08JAowRoC6e+BE3DPzvbHDfq3qo4ooKARowCvmIaremJ0+mr/Ffu8dfRj39LNu/8AJlKQDc/dffM42DJNuecHPpfjSyT6E="
+
 
 before_install:
   # install ros
@@ -27,6 +30,19 @@ before_install:
   - source /opt/ros/$ROS_DISTRO/setup.bash
   - sudo rosdep init
   - rosdep update
+  # [CoverityScan]
+  - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+
+# [CoverityScan]
+addons:
+  coverity_scan:
+    project:
+      name: "max-krichenbauer/ros_comm"
+      description: "ROS communications-related packages"
+    notification_email: max@marui-plugin.com
+    build_command_prepend: "<Your build preprocessing command here>"
+    build_command: "cd ~/catkin_ws && catkin_make"
+    branch_pattern: kinetic-devel-coverity-scan
 
 install:
   # make catkin_ws
